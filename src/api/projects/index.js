@@ -1,3 +1,4 @@
+//THIS IS IN THE PROJECTS FOLDER
 const router = require("express").Router();
 const builds = require("./builds");
 
@@ -7,7 +8,6 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { project } = req.body;
   // TODO Add new project, give it an id and send it back.
   res.status(418).json({ message: "Not Implemented" });
 });

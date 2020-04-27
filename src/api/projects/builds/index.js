@@ -1,3 +1,4 @@
+//THIS IS IN THE BUILDS FOLDER
 const router = require("express").Router({ mergeParams: true });
 
 router.get("/", (req, res) => {

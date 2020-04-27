@@ -1,3 +1,4 @@
+//THIS IS IN THE API FOLDER
 const express = require("express");
 const projects = require("./projects");
 
