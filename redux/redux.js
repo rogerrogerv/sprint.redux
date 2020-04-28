@@ -50,46 +50,43 @@ function reducer(state = initialState, action) {
       }
       return {...state, projects: projectsCopy};
     case 'DELETE_PROJECT': 
-    const projectObj = [ ...state.projects ];
-      console.log("************** delete I*************", state.projects);
-      return {...state, projects: projectObj.filter(project => project.id != action.id)}
-    default:
+      return {...state, projects: [...state.projects].filter(project => project.id != action.id)}
+    case "GET_BUILDS":
+      return {}
+      default:
       return state;
   }
 }
 
-const store = createStore(reducer);
+const store = createStore(reducer, initialState);
 
-// //GET PROJECTS//
-// //get projects and produce new state
-// store.dispatch({type: 'GET_PROJECTS'});
-// //get the new state
-// let getProjects = store.getState().projects;
+//GET PROJECTS//
+store.dispatch({type: 'GET_PROJECTS'});
+let getProjects = store.getState().projects;
 
-// //POST PROJECT//
-// const abc = {id: "233"}
-// //action creator
-// function addNewProjectAction (project) {
-//     return {type: "POST_PROJECT", project: project};
-// }
-// //add project and produce new state
-// store.dispatch(addNewProjectAction(abc));
-// //get the new state
-// const postProject = store.getState().projects;
+//POST PROJECT//
+const abc = {id: "233"}
+function addNewProjectAction (project) {
+    return {type: "POST_PROJECT", project: project};
+}
+store.dispatch(addNewProjectAction(abc));
+const postProject = store.getState().projects;
 
-// //GET PROJECT//
-// function getProject (id) {
-//     return {type: "GET_PROJECT", id: id};
-// }
-// store.dispatch(getProject("23"));
-// const fetchedProject = store.getState().projects;
+//GET PROJECT//
+function getProject (id) {
+    return {type: "GET_PROJECT", id: id};
+}
+store.dispatch(getProject("23"));
+const fetchedProject = store.getState().projects;
 
 //EDIT PROJECT//
-// store.dispatch({type: "EDIT_PROJECT", id: "23", project: {name: "whatever"}})
-// const editedProject = store.getState().projects;
-// console.log("editedProject ******>", editedProject)
+store.dispatch({type: "EDIT_PROJECT", id: "23", project: {name: "whatever"}})
+const editedProject = store.getState().projects;
 
 //DELETE PROJECT//
 store.dispatch({type: "DELETE_PROJECT", id: "Noodles"});
 const deleteProject = store.getState().projects;
-console.log("************ deleteProject OUTER ************", deleteProject)
+
+//GET BUILDS//
+// store.dispatch({type: "GET_BUILDS", id: "Noodles"});
+// const builds = store.getState().builds;
