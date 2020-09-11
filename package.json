@@ -27,7 +27,7 @@
     "husky": "^1.1.2",
     "minimist": "^1.2.5",
     "mocha": "^5.2.0",
-    "node-fetch": "^2.2.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.18.5",
     "prettier": "^1.14.3",
     "pretty-quick": "^1.8.0"
